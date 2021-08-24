@@ -1,0 +1,16 @@
+{
+    "name": "zgclives/bytedance",
+    "description": "bytedance sdk",
+    "license": "Apache-2.0",
+    "type": "library",
+    "require": {
+        "php": ">=7.2.0"
+    },
+    "authors": [
+        {
+            "name": "zgclives",
+            "email": "83746020@qq.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
