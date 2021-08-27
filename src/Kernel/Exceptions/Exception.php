@@ -10,7 +10,7 @@ class Exception extends BaseException
     public function toString(): string
     {
         return <<<LOG
-bytedance mini app error: $this->message. file: $this->file:$this->line. 
+bytedance app error: $this->message. file: $this->file:$this->line. 
 LOG;
     }
 

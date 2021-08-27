@@ -3,6 +3,11 @@
     "description": "bytedance sdk",
     "license": "Apache-2.0",
     "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Bytedance\\": "src/"
+        }
+    },
     "require": {
         "php": ">=7.2.0",
         "psr/log": "^1.1",

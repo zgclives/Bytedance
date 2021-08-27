@@ -14,11 +14,11 @@ class CreateSettleRequest extends Request
     {
         return [
             [
-                'name' => 'outOrderNo',
+                'name' => 'outSettleNo',
                 'default' => null,
             ],
             [
-                'name' => 'outSettleNo',
+                'name' => 'outOrderNo',
                 'default' => null,
             ],
             [
@@ -52,8 +52,8 @@ class CreateSettleRequest extends Request
     public function sendRequest($arguments): array
     {
         [
-            $outOrderNo,
             $outSettleNo,
+            $outOrderNo,
             $settleDesc,
             $settleParams,
             $cpExtra,
@@ -63,10 +63,10 @@ class CreateSettleRequest extends Request
 
         $params = [
             'app_id' => $this->config->appId,
-            'out_order_no' => $outOrderNo,
             'out_settle_no' => $outSettleNo,
+            'out_order_no' => $outOrderNo,
             'settle_desc' => $settleDesc,
-            'settle_params' => $settleParams,
+            'settle_params' => json_encode($settleParams),
             'cp_extra' => $cpExtra,
             'notify_url' => $notifyUrl,
             'thirdparty_id' => $thirdPartyId,

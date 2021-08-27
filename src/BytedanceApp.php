@@ -18,7 +18,7 @@ use Psr\SimpleCache\CacheInterface;
  * @property-read Utils\Encrypt\Manager $encrypt
  * @package BytedanceMiniApp
  */
-class Bytedance
+class BytedanceApp
 {
     protected $classMap = [
         'login' => Handlers\Login\Manager::class,
@@ -58,7 +58,7 @@ class Bytedance
     protected function getInstance(string $name): Manager
     {
         if (!isset($this->classMap[$name])) {
-            throw new InvalidClassException('BytedanceMiniApp exception: not found class');
+            throw new InvalidClassException('BytedanceApp exception: not found class');
         }
 
         return $this->classMap[$name]::createFromKernel($this->kernel);

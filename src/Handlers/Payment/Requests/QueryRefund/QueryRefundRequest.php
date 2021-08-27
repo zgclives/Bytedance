@@ -4,7 +4,7 @@
 namespace Bytedance\Handlers\Payment\Requests\QueryRefund;
 
 
-use Bytedance\Handlers\Payment\Requests\QueryOrder\QueryOrderResponse;
+use Bytedance\Handlers\Payment\Requests\QueryOrder\QuerySettleResponse;
 use Bytedance\Kernel\Http\Request;
 use Bytedance\Kernel\Http\Response;
 use Bytedance\Utils\Encrypt\Payment\RequestSigner;
