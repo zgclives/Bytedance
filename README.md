@@ -72,3 +72,9 @@ return [
     'order_token' => $response->orderToken
 ];
 ```
+
+### 订单查询
+
+```php
+$response = $app->payment->queryOrder($out_order_no);
+```
