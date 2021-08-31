@@ -34,9 +34,10 @@ class HttpClient
      * @param string $uri
      * @param array $params
      * @param array $headers
-     * @return array
+     * @param bool $format
+     * @return array|string
      */
-    public function post(string $uri, array $params = [], array $headers = []): array
+    public function post(string $uri, array $params = [], array $headers = [], bool $format = true)
     {
         $headers[] = 'Content-type: application/json';
 
@@ -50,7 +51,7 @@ class HttpClient
         $output = curl_exec($ch);
         curl_close($ch);
 
-        return json_decode($output, true);
+        return $format ? json_decode($output, true) : $output;
     }
 
     /**

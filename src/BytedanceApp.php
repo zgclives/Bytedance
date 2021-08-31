@@ -15,30 +15,33 @@ use Psr\SimpleCache\CacheInterface;
 /**
  * @property-read Handlers\Login\Manager $login
  * @property-read Handlers\Payment\Manager $payment
+ * @property-read Handlers\Tool\Manager $tool
  * @property-read Utils\Encrypt\Manager $encrypt
  * @package BytedanceMiniApp
  */
 class BytedanceApp
 {
-    protected $classMap = [
-        'login' => Handlers\Login\Manager::class,
-        'encrypt' => Utils\Encrypt\Manager::class,
-        'payment' => Handlers\Payment\Manager::class,
-    ];
+    protected $classMap
+        = [
+            'login'   => Handlers\Login\Manager::class,
+            'encrypt' => Utils\Encrypt\Manager::class,
+            'payment' => Handlers\Payment\Manager::class,
+            'tool'    => Handlers\Tool\Manager::class,
+        ];
 
     protected $objectPool = [];
 
     protected $kernel;
 
     public function __construct(
-        string $appId,
-        string $secret,
-        string $salt,
-        string $token,
+        string           $appId,
+        string           $secret,
+        string           $salt,
+        string           $token,
         ?LoggerInterface $logger = null,
-        ?CacheInterface $cache = null,
-        bool $isDebug = false,
-        HttpClient $http = null
+        ?CacheInterface  $cache = null,
+        bool             $isDebug = false,
+        HttpClient       $http = null
     )
     {
         $this->kernel = (new Kernel(

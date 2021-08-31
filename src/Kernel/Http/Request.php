@@ -9,7 +9,7 @@ use Bytedance\Kernel\Handler;
 
 abstract class Request extends Handler implements OpenApiInterface
 {
-    abstract public function sendRequest($arguments): array;
+    abstract public function sendRequest($arguments);
 
     public function handle($arguments): Response
     {
@@ -24,7 +24,9 @@ abstract class Request extends Handler implements OpenApiInterface
             $this->logger->debug(json_encode($response));
         }
 
-        $this->assertRequestSuccess($response);
+        if (is_array($response)) {
+            $this->assertRequestSuccess($response);
+        }
 
         return static::format($response);
     }
@@ -36,8 +38,8 @@ abstract class Request extends Handler implements OpenApiInterface
      */
     protected function assertRequestSuccess(array $response): void
     {
-        $errorCode =  $response['error'] ?? $response['err_no'] ?? 0;
-        $errMsg = $response['message'] ?? $response['err_tips'] ?? '';
+        $errorCode = $response['error'] ?? $response['err_no'] ?? 0;
+        $errMsg    = $response['message'] ?? $response['err_tips'] ?? '';
 
         if ($errorCode !== 0) {
             throw new RequestException($errMsg);
