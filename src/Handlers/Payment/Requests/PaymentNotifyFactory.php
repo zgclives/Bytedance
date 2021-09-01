@@ -6,6 +6,7 @@ namespace Bytedance\Handlers\Payment\Requests;
 
 use Bytedance\Handlers\Payment\Requests\PaymentNotify\PaymentNotify;
 use Bytedance\Handlers\Payment\Requests\RefundNotify\RefundNotify;
+use Bytedance\Handlers\Payment\Requests\SettleNotify\SettleNotify;
 use Bytedance\Kernel\Exceptions\InvalidClassException;
 use Bytedance\Kernel\Exceptions\InvalidSignatureException;
 use Bytedance\Kernel\Handler;
@@ -24,7 +25,8 @@ class PaymentNotifyFactory extends Handler
 
         $handlers = [
             'payment' => PaymentNotify::class,
-            'refund' => RefundNotify::class
+            'refund'  => RefundNotify::class,
+            'settle'  => SettleNotify::class,
         ];
 
         $handler = $handlers[$arguments['type']] ?? null;

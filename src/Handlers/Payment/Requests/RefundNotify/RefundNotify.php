@@ -45,7 +45,7 @@ class RefundNotify
         string $cpRefundNo,
         string $cpExtra,
         string $status,
-        int $refundAmount
+        int    $refundAmount
     )
     {
         $this->appId        = $appId;
@@ -74,5 +74,13 @@ class RefundNotify
     public function isSuccess(): bool
     {
         return $this->status === self::SUCCESS;
+    }
+
+    public function toSuccessResponse(): string
+    {
+        return json_encode([
+            "err_no"   => 0,
+            "err_tips" => "success",
+        ]);
     }
 }

@@ -61,19 +61,19 @@ class PaymentNotify
             $array['appid'],
             $array['cp_orderno'],
             $array['way'],
-            $array['cp_extra'],
+            $array['cp_extra']
         );
     }
 
     /**
      * 返回成功
-     * @return array
+     * @return string
      */
-    public function toSuccessResponse(): array
+    public function toSuccessResponse(): string
     {
-        return [
-            "err_no" => 0,
+        return json_encode([
+            "err_no"   => 0,
             "err_tips" => "success",
-        ];
+        ]);
     }
 }

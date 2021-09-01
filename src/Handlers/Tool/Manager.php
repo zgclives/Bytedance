@@ -3,13 +3,14 @@
 
 namespace Bytedance\Handlers\Tool;
 
-use Bytedance\Handlers\Payment\Requests\QueryOrder\QueryOrderResponse;
 use Bytedance\Handlers\Tool\Requests\CreateQRCode\CreateQRCodeRequest;
 use Bytedance\Handlers\Tool\Requests\CreateQRCode\CreateQRCodeResponse;
+use Bytedance\Handlers\Tool\Requests\SubscribedMessage\SendSubscribedMessageRequest;
+use Bytedance\Handlers\Tool\Requests\SubscribedMessage\SendSubscribedMessageResponse;
 
 /**
  * @method CreateQRCodeResponse createQRCode(string $accessToken, string $appName, ?string $path, ?int $width = 430, ?string $lineColor = '', ?string $background = '', bool $setIcon = false)
- * @method QueryOrderResponse queryOrder(string $outOrderNo, ?string $thirdPartyId = null)
+ * @method SendSubscribedMessageResponse sendSubscribedMessage(string $accessToken, string $tplId, string $openId, array $data, ?string $page)
  * @package Bytedance\Handlers\Tool
  */
 class Manager extends \Bytedance\Kernel\Manager
@@ -26,7 +27,8 @@ class Manager extends \Bytedance\Kernel\Manager
     protected function getClassMap(): array
     {
         return [
-            'createQRCode' => CreateQRCodeRequest::class,
+            'createQRCode'          => CreateQRCodeRequest::class,
+            'sendSubscribedMessage' => SendSubscribedMessageRequest::class
         ];
     }
 }
