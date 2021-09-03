@@ -23,6 +23,10 @@ class CreateQRCodeRequest extends Request
                 'default' => '',
             ],
             [
+                'name'    => 'setIcon',
+                'default' => false,
+            ],
+            [
                 'name'    => 'width',
                 'default' => 430,
             ],
@@ -33,10 +37,6 @@ class CreateQRCodeRequest extends Request
             [
                 'name'    => 'background',
                 'default' => '',
-            ],
-            [
-                'name'    => 'setIcon',
-                'default' => false,
             ],
         ];
     }
@@ -52,10 +52,10 @@ class CreateQRCodeRequest extends Request
             $accessToken,
             $appName,
             $path,
+            $setIcon,
             $width,
             $lineColor,
             $background,
-            $setIcon
         ]
             = $arguments;
 
@@ -63,10 +63,10 @@ class CreateQRCodeRequest extends Request
             'access_token' => $accessToken,
             'appname'      => $appName,
             'path'         => $path,
+            'set_icon'     => $setIcon,
             'width'        => $width,
             'line_color'   => $lineColor,
             'background'   => $background,
-            'set_icon'     => $setIcon
         ];
 
         $params = array_filter($params);

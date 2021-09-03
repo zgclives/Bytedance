@@ -7,23 +7,17 @@ use Bytedance\Kernel\Http\Response;
 class SendSubscribedMessageResponse extends Response
 {
     /**
-     * @var int
+     * @var array
      */
-    public $err_no;
+    public $result;
 
-    /**
-     * @var string
-     */
-    public $err_tips;
-
-    public function __construct($err_no, $err_tips)
+    public function __construct($result)
     {
-        $this->err_no   = $err_no;
-        $this->err_tips = $err_tips;
+        $this->result = $result;
     }
 
     public static function create(array $array)
     {
-        return new static($array['err_no'], $array['err_tips']);
+        return new static($array);
     }
 }

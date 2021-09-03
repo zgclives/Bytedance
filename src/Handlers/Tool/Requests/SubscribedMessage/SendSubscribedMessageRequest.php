@@ -55,11 +55,8 @@ class SendSubscribedMessageRequest extends Request
             'tpl_id'       => $tplId,
             'open_id'      => $openId,
             'data'         => $data,
+            'page'         => $page,
         ];
-
-        if ($page) {
-            $params['page'] = $page;
-        }
 
         $params = array_filter($params);
         return $this->http->post(
