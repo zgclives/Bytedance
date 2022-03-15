@@ -63,7 +63,7 @@ class RefundNotify
     public static function createFromArray(array $array)
     {
         return new static(
-            $array['app_id'],
+            $array['appid'],
             $array['cp_refundno'],
             $array['cp_extra'],
             $array['status'],
